@@ -1,0 +1,137 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma/client"
+}
+
+model Tenant {
+  id             String         @id @default(cuid())
+  name           String         @unique
+  users          User[]
+  loans          Loan[]
+  payments       Payment[]
+  clients        TenantClient[]
+  createdClients Client[]       @relation("ClientCreatedIn")
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model Client {
+  id              String         @id @default(cuid())
+  name            String
+  email           String         @unique
+  password        String
+  phone           String
+  address         String
+  loans           Loan[]
+  payments        Payment[]
+  tenants         TenantClient[]
+  createdBy       String
+  createdByUser   User           @relation("ClientCreator", fields: [createdBy], references: [id])
+  createdIn       String
+  createdInTenant Tenant         @relation("ClientCreatedIn", fields: [createdIn], references: [id])
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([createdBy])
+  @@index([createdIn])
+}
+
+model TenantClient {
+  id       String   @id @default(cuid())
+  tenantId String
+  clientId String
+  tenant   Tenant   @relation(fields: [tenantId], references: [id])
+  client   Client   @relation(fields: [clientId], references: [id])
+  joinedAt DateTime @default(now())
+
+  @@unique([tenantId, clientId])
+  @@index([clientId])
+  @@index([tenantId])
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  password       String
+  name           String
+  role           Role
+  tenantId       String
+  tenant         Tenant    @relation(fields: [tenantId], references: [id])
+  loans          Loan[]
+  payments       Payment[]
+  createdClients Client[]  @relation("ClientCreator")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@index([role])
+}
+
+model Loan {
+  id        String     @id @default(cuid())
+  clientId  String
+  client    Client     @relation(fields: [clientId], references: [id])
+  tenantId  String
+  tenant    Tenant     @relation(fields: [tenantId], references: [id])
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  amount    Float
+  interest  Float
+  term      Int
+  startDate DateTime
+  status    LoanStatus
+  payments  Payment[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([tenantId])
+  @@index([clientId])
+  @@index([userId])
+  @@index([tenantId, clientId])
+  @@index([tenantId, userId])
+}
+
+model Payment {
+  id       String   @id @default(cuid())
+  loanId   String
+  loan     Loan     @relation(fields: [loanId], references: [id])
+  clientId String
+  client   Client   @relation(fields: [clientId], references: [id])
+  userId   String
+  user     User     @relation(fields: [userId], references: [id])
+  tenantId String
+  tenant   Tenant   @relation(fields: [tenantId], references: [id])
+  amount   Float
+  date     DateTime @default(now())
+
+  @@index([tenantId])
+  @@index([clientId])
+  @@index([userId])
+  @@index([loanId])
+  @@index([tenantId, clientId])
+  @@index([tenantId, userId])
+}
+
+enum Role {
+  SUPERADMIN
+  ADMIN
+  BASIC
+}
+
+enum LoanStatus {
+  PENDIENTE
+  APROVADO
+  PAGADO
+  RECHAZADO
+}
