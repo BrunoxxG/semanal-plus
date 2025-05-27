@@ -62,7 +62,7 @@ export default function FormUsuario(props) {
       email: usuario?.email || "",
       password: "",
       role: usuario?.role || undefined,
-      tenantId: usuario?.tenantId || undefined,
+      tenantId: usuario?.tenantId || userSession?.tenantId,
     },
   });
   const { isValid } = form.formState;
@@ -209,34 +209,36 @@ export default function FormUsuario(props) {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="tenantId"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Sucursal</FormLabel>
-                {isLoading ? (
-                  <div className="text-muted-foreground text-sm">Cargando sucursales...</div>
-                ) : (
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl className="w-full">
-                      <SelectTrigger>
-                        <SelectValue placeholder="Seleccione Sucursal" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {sucursales?.map((sucursal) => (
-                        <SelectItem key={sucursal.id} value={sucursal.id}>
-                          {sucursal.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          {userSession?.role === "SUPERADMIN" && (
+            <FormField
+              control={form.control}
+              name="tenantId"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Sucursal</FormLabel>
+                  {isLoading ? (
+                    <div className="text-muted-foreground text-sm">Cargando sucursales...</div>
+                  ) : (
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl className="w-full">
+                        <SelectTrigger>
+                          <SelectValue placeholder="Seleccione Sucursal" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {sucursales?.map((sucursal) => (
+                          <SelectItem key={sucursal.id} value={sucursal.id}>
+                            {sucursal.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
         </div>
         <Dialog>
           <DialogTrigger asChild>

@@ -28,7 +28,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             throw new Error("Invalid credentials");
           }
 
-          return { id: user.id, email: user.email, role: user.role, type: "user" };
+          return { id: user.id, email: user.email, role: user.role, type: "user", tenantId: user.tenantId };
         
         } else if (credentials.type === "client") {
           const client = await prisma.client.findUnique({
@@ -57,6 +57,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user) {
         token.role = user.role;
         token.type = user.type;
+        token.tenantId = user.tenantId || null;
       }
       return token;
     },
@@ -65,6 +66,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         session.user.id = token.sub || "";
         session.user.role = token.role;
         session.user.type = token.type;
+        session.user.tenantId = token.tenantId || null;
       }
       return session;
     },

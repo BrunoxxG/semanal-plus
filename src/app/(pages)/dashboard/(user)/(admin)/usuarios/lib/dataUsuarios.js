@@ -1,13 +1,23 @@
+"use server";
+
 import axios from "axios";
 import prisma from "@/lib/prisma";
-import { Gem, ShieldUser, User } from "lucide-react";
+import { cookies } from "next/headers";
+import { auth } from "@/auth";
 
 const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 export async function getUsuarios() {
   try {
+
+    const { user } = await auth();
+
+    const cookieStore = await cookies();
+    const tenantId = cookieStore.get("selectedTenantId")?.value || user?.tenantId;
+
     const users = await prisma.user.findMany({
       where: {
+        tenantId,
         email: {
           not: "canalesluis9@gmail.com",
         },
@@ -84,21 +94,3 @@ export async function getUsuarioByApi(userId, from, to) {
     return null;
   }
 }
-
-export const roles = [
-  {
-    value: "SUPERADMIN",
-    label: "SUPERADMIN",
-    icon: Gem,
-  },
-  {
-    value: "ADMIN",
-    label: "ADMIN",
-    icon: ShieldUser,
-  },
-  {
-    value: "BASIC",
-    label: "BASIC",
-    icon: User,
-  },
-];

@@ -4,12 +4,14 @@ import { revalidatePath } from "next/cache";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
+import { auth } from "@/auth";
+import CloudinaryModel from "@/lib/cloudinary";
 
 const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
-export async function createCliente(values, userSessionId) {
+export async function createCliente(values) {
   try {
-    const { name, email, password, phone, address } = values;
+    const { name, email, password, phone, address, bankAccount, dni, imageDniFront, imageDniBack } = values;
 
     const clientFound = await prisma.client.findFirst({
       where: { email },
@@ -19,32 +21,50 @@ export async function createCliente(values, userSessionId) {
       return { message: `Client with email ${email} already exists`, status: 400, succes: false };
     }
 
-    const userSession = await prisma.user.findUnique({
-      where: { id: userSessionId },
-      select: {
-        name: true,
-        tenant: true,
-      }
-    });
+    let imageFrontUrl = null;
+    if (imageDniFront instanceof File) {
+      const arrayBufferFront = await imageDniFront.arrayBuffer();
+      const bufferFront = Buffer.from(arrayBufferFront);
 
-    if (!userSession) {
-      return { message: `User with id ${userSessionId} not exists` };
+      imageFrontUrl = await CloudinaryModel.uploadImage(
+        bufferFront,
+        `${dni}-${name.replace(/\s+/g, '')}-DniFront`,
+        `clientes/${name}`
+      );
     }
+
+    let imageBackUrl = null;
+    if (imageDniBack instanceof File) {
+      const arrayBufferBack = await imageDniBack.arrayBuffer();
+      const bufferBack = Buffer.from(arrayBufferBack);
+
+      imageBackUrl = await CloudinaryModel.uploadImage(
+        bufferBack,
+        `${dni}-${name.replace(/\s+/g, '')}-DniBack`,
+        `clientes/${name}`
+      );
+    }
+
+    const { user } = await auth();
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await prisma.client.create({
       data: {
         name,
+        dni,
         email,
         password: hashedPassword,
         phone,
         address,
-        createdBy: userSession.id,
-        createdIn: userSession.tenant.id,
+        bankAccount,
+        imageDniFront: imageFrontUrl,
+        imageDniBack: imageBackUrl,
+        createdById: user.id,
+        createdInId: user.tenantId,
         tenants: {
-          connect: {
-            id: userSession.tenant.id,
+          create: {
+            tenantId: user.tenantId,
           },
         },
       },
@@ -67,9 +87,39 @@ export async function updateCliente(values, clienteId) {
     delete values.password;
   }
 
+  if (values.imageDniFront === "") {
+    delete values.imageDniFront;
+  }
+
+  if (values.imageDniBack === "") {
+    delete values.imageDniBack;
+  }
+
   try {
     if (values.password) {
       values.password = await bcrypt.hash(values.password, 10);
+    }
+
+    if (values.imageDniFront instanceof File) {
+      const arrayBufferFront = await values.imageDniFront.arrayBuffer();
+      const bufferFront = Buffer.from(arrayBufferFront);
+
+      values.imageDniFront = await CloudinaryModel.uploadImage(
+        bufferFront,
+        `${values.dni}-${values.name.replace(/\s+/g, '')}-DniFront`,
+        `clientes/${values.name}`
+      );
+    }
+
+    if (values.imageDniBack instanceof File) {
+      const arrayBufferBack = await values.imageDniBack.arrayBuffer();
+      const bufferBack = Buffer.from(arrayBufferBack);
+
+      values.imageDniBack = await CloudinaryModel.uploadImage(
+        bufferBack,
+        `${values.dni}-${values.name.replace(/\s+/g, '')}-DniBack`,
+        `clientes/${values.name}`
+      );
     }
 
     const updatedClient = await prisma.client.update({

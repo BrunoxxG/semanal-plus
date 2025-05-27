@@ -38,10 +38,10 @@ export default function NavLinks(props) {
 
   return (
     <div className="h-full flex flex-col overflow-auto">
-      <div className="text-white flex items-center justify-center">
-        {/* <img src="/LogoMelania.png" alt="JM Logo" className="h-24 p-2 md:h-40" /> */}
+      {/* <div className="text-white flex items-center justify-center">
+        <img src="" alt="" className="h-24 p-2 md:h-40" />
       </div>
-      <Separator />
+      <Separator /> */}
 
       {user?.type === "client" ? (
         <div className="p-2 md:p-6">

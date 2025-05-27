@@ -8,7 +8,7 @@ export async function loginAction(values) {
     await signIn("credentials", {
       email: values.email,
       password: values.password,
-      type: values.type,
+      type: values.clientOrUser ? "user" : "client",
       redirect: false,
     });
     return { success: true };

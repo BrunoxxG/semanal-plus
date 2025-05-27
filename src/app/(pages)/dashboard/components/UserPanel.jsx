@@ -35,7 +35,7 @@ export function UserPanel({ user }) {
               Mi Cuenta
             </Link>
           ) : (
-            <Link href={`/dashboard/clientes/${user?.id}`} className="flex gap-2 items-center">
+            <Link href={`/dashboard/cliente`} className="flex gap-2 items-center">
               <BookUserIcon className="w-4 h-4" />
              Mi Cuenta
             </Link>

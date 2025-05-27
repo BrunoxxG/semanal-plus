@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { loginAction } from "../actions/actionsLogin";
+import { Switch } from "@/components/ui/switch";
 
 export default function FormLogin() {
   const [error, setError] = useState(null);
@@ -17,14 +18,14 @@ export default function FormLogin() {
     defaultValues: {
       email: "",
       password: "",
+      clientOrUser: false,
     },
   });
 
   async function onSubmit(values) {
     setError(null);
-    const valuesLogin = {...values, type: "user"}
     startTransition(async () => {
-      const response = await loginAction(valuesLogin);
+      const response = await loginAction(values);
       if(response.error) {
         setError(response.error);
       } else {
@@ -59,6 +60,21 @@ export default function FormLogin() {
                 <Input placeholder="Ingrese su password" type="password" {...field} />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="clientOrUser"
+          render={({ field }) => (
+            <FormItem >
+              <FormControl>
+                <div className="flex items-center gap-2">
+                  <p>Cliente</p>
+                  <Switch checked={field.value} onCheckedChange={field.onChange} />
+                  <p>Admin</p>
+                </div>
+              </FormControl>
             </FormItem>
           )}
         />

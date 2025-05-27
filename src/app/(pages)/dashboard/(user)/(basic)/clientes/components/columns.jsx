@@ -96,7 +96,7 @@ export const columns = [
             </DropdownMenuContent>
           </DropdownMenu>
           <Dialog open={openModalUpdate} onOpenChange={setOpenModalUpdate}>
-            <DialogContent>
+            <DialogContent className="max-h-[90%] overflow-auto">
               <DialogTitle>Editar</DialogTitle>
               <FormCliente
                 setOpenModalForm={setOpenModalUpdate}

@@ -13,7 +13,7 @@ import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 import { FormCliente } from ".";
 
-export default function HeaderClientes({ session }) {
+export default function HeaderClientes() {
   const [openModalCreate, setOpenModalCreate] = useState(false);
 
   return (
@@ -30,7 +30,7 @@ export default function HeaderClientes({ session }) {
               Crear y Editar Cliente
             </DialogDescription>
           </DialogHeader>
-          <FormCliente setOpenModalForm={setOpenModalCreate} zodPassword userSession={session.user}/>
+          <FormCliente setOpenModalForm={setOpenModalCreate} zodPassword />
         </DialogContent>
       </Dialog>
     </div>

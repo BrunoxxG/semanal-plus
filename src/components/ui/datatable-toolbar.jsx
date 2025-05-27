@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "@/components/ui/datatable-viewoptions";
 import { DataTableFacetedFilter } from "@/components/ui/datatable-facetedfilter";
 
-import { roles } from "@/app/(pages)/dashboard/(user)/(admin)/usuarios/lib/dataUsuarios";
+import { roles } from "@/app/(pages)/dashboard/(user)/(admin)/usuarios/lib/roles";
 
 export function DataTableToolbar({ table, filters }) {
   const isFiltered = table.getState().columnFilters.length > 0;

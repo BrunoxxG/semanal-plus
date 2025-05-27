@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { DataTableColumnHeader } from "@/components/ui/datatable-columnheader";
-import { roles } from "../lib/dataUsuarios";
+import { roles } from "../lib/roles";
 import { useState } from "react";
 import { toast } from "sonner";
 import { deleteUsuario } from "../actions/actionsUsuarios";
@@ -47,7 +47,7 @@ export const columns = [
       }
 
       return (
-        <div className="flex w-[100px] items-center">
+        <div className="flex items-center">
           {role.icon && <role.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
           <span>{role.label}</span>
         </div>

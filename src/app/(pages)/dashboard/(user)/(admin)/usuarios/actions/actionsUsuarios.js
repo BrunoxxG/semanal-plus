@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
+import { auth } from "@/auth";
 
 const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
@@ -18,6 +19,11 @@ export async function createUsuario(values) {
     if (userFound) {
       return { message: `User with email ${email} already exists`, status: 400, succes: false };
     }
+
+    const { user } = await auth();
+
+    const tenant = user?.role === "SUPERADMIN" ? tenantId : user.tenantId;
+
 
     const hashedPassword = await bcrypt.hash(password, 10);
 

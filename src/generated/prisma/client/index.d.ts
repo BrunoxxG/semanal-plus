@@ -318,8 +318,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -2733,12 +2733,16 @@ export namespace Prisma {
   export type ClientMinAggregateOutputType = {
     id: string | null
     name: string | null
+    dni: string | null
     email: string | null
     password: string | null
     phone: string | null
     address: string | null
-    createdBy: string | null
-    createdIn: string | null
+    bankAccount: string | null
+    imageDniFront: string | null
+    imageDniBack: string | null
+    createdById: string | null
+    createdInId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2746,12 +2750,16 @@ export namespace Prisma {
   export type ClientMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    dni: string | null
     email: string | null
     password: string | null
     phone: string | null
     address: string | null
-    createdBy: string | null
-    createdIn: string | null
+    bankAccount: string | null
+    imageDniFront: string | null
+    imageDniBack: string | null
+    createdById: string | null
+    createdInId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2759,12 +2767,16 @@ export namespace Prisma {
   export type ClientCountAggregateOutputType = {
     id: number
     name: number
+    dni: number
     email: number
     password: number
     phone: number
     address: number
-    createdBy: number
-    createdIn: number
+    bankAccount: number
+    imageDniFront: number
+    imageDniBack: number
+    createdById: number
+    createdInId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2774,12 +2786,16 @@ export namespace Prisma {
   export type ClientMinAggregateInputType = {
     id?: true
     name?: true
+    dni?: true
     email?: true
     password?: true
     phone?: true
     address?: true
-    createdBy?: true
-    createdIn?: true
+    bankAccount?: true
+    imageDniFront?: true
+    imageDniBack?: true
+    createdById?: true
+    createdInId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2787,12 +2803,16 @@ export namespace Prisma {
   export type ClientMaxAggregateInputType = {
     id?: true
     name?: true
+    dni?: true
     email?: true
     password?: true
     phone?: true
     address?: true
-    createdBy?: true
-    createdIn?: true
+    bankAccount?: true
+    imageDniFront?: true
+    imageDniBack?: true
+    createdById?: true
+    createdInId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2800,12 +2820,16 @@ export namespace Prisma {
   export type ClientCountAggregateInputType = {
     id?: true
     name?: true
+    dni?: true
     email?: true
     password?: true
     phone?: true
     address?: true
-    createdBy?: true
-    createdIn?: true
+    bankAccount?: true
+    imageDniFront?: true
+    imageDniBack?: true
+    createdById?: true
+    createdInId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2886,12 +2910,16 @@ export namespace Prisma {
   export type ClientGroupByOutputType = {
     id: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt: Date
     updatedAt: Date
     _count: ClientCountAggregateOutputType | null
@@ -2916,81 +2944,97 @@ export namespace Prisma {
   export type ClientSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    dni?: boolean
     email?: boolean
     password?: boolean
     phone?: boolean
     address?: boolean
-    createdBy?: boolean
-    createdIn?: boolean
+    bankAccount?: boolean
+    imageDniFront?: boolean
+    imageDniBack?: boolean
+    createdById?: boolean
+    createdInId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     loans?: boolean | Client$loansArgs<ExtArgs>
     payments?: boolean | Client$paymentsArgs<ExtArgs>
     tenants?: boolean | Client$tenantsArgs<ExtArgs>
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
     _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
 
   export type ClientSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    dni?: boolean
     email?: boolean
     password?: boolean
     phone?: boolean
     address?: boolean
-    createdBy?: boolean
-    createdIn?: boolean
+    bankAccount?: boolean
+    imageDniFront?: boolean
+    imageDniBack?: boolean
+    createdById?: boolean
+    createdInId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
 
   export type ClientSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    dni?: boolean
     email?: boolean
     password?: boolean
     phone?: boolean
     address?: boolean
-    createdBy?: boolean
-    createdIn?: boolean
+    bankAccount?: boolean
+    imageDniFront?: boolean
+    imageDniBack?: boolean
+    createdById?: boolean
+    createdInId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
 
   export type ClientSelectScalar = {
     id?: boolean
     name?: boolean
+    dni?: boolean
     email?: boolean
     password?: boolean
     phone?: boolean
     address?: boolean
-    createdBy?: boolean
-    createdIn?: boolean
+    bankAccount?: boolean
+    imageDniFront?: boolean
+    imageDniBack?: boolean
+    createdById?: boolean
+    createdInId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ClientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "phone" | "address" | "createdBy" | "createdIn" | "createdAt" | "updatedAt", ExtArgs["result"]["client"]>
+  export type ClientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "dni" | "email" | "password" | "phone" | "address" | "bankAccount" | "imageDniFront" | "imageDniBack" | "createdById" | "createdInId" | "createdAt" | "updatedAt", ExtArgs["result"]["client"]>
   export type ClientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     loans?: boolean | Client$loansArgs<ExtArgs>
     payments?: boolean | Client$paymentsArgs<ExtArgs>
     tenants?: boolean | Client$tenantsArgs<ExtArgs>
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
     _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClientIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
   }
   export type ClientIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    createdByUser?: boolean | UserDefaultArgs<ExtArgs>
-    createdInTenant?: boolean | TenantDefaultArgs<ExtArgs>
+    createdBy?: boolean | UserDefaultArgs<ExtArgs>
+    createdIn?: boolean | TenantDefaultArgs<ExtArgs>
   }
 
   export type $ClientPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2999,18 +3043,22 @@ export namespace Prisma {
       loans: Prisma.$LoanPayload<ExtArgs>[]
       payments: Prisma.$PaymentPayload<ExtArgs>[]
       tenants: Prisma.$TenantClientPayload<ExtArgs>[]
-      createdByUser: Prisma.$UserPayload<ExtArgs>
-      createdInTenant: Prisma.$TenantPayload<ExtArgs>
+      createdBy: Prisma.$UserPayload<ExtArgs>
+      createdIn: Prisma.$TenantPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      dni: string
       email: string
       password: string
       phone: string
       address: string
-      createdBy: string
-      createdIn: string
+      bankAccount: string
+      imageDniFront: string
+      imageDniBack: string
+      createdById: string
+      createdInId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["client"]>
@@ -3410,8 +3458,8 @@ export namespace Prisma {
     loans<T extends Client$loansArgs<ExtArgs> = {}>(args?: Subset<T, Client$loansArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payments<T extends Client$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Client$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tenants<T extends Client$tenantsArgs<ExtArgs> = {}>(args?: Subset<T, Client$tenantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TenantClientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    createdByUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    createdInTenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    createdBy<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    createdIn<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3443,12 +3491,16 @@ export namespace Prisma {
   interface ClientFieldRefs {
     readonly id: FieldRef<"Client", 'String'>
     readonly name: FieldRef<"Client", 'String'>
+    readonly dni: FieldRef<"Client", 'String'>
     readonly email: FieldRef<"Client", 'String'>
     readonly password: FieldRef<"Client", 'String'>
     readonly phone: FieldRef<"Client", 'String'>
     readonly address: FieldRef<"Client", 'String'>
-    readonly createdBy: FieldRef<"Client", 'String'>
-    readonly createdIn: FieldRef<"Client", 'String'>
+    readonly bankAccount: FieldRef<"Client", 'String'>
+    readonly imageDniFront: FieldRef<"Client", 'String'>
+    readonly imageDniBack: FieldRef<"Client", 'String'>
+    readonly createdById: FieldRef<"Client", 'String'>
+    readonly createdInId: FieldRef<"Client", 'String'>
     readonly createdAt: FieldRef<"Client", 'DateTime'>
     readonly updatedAt: FieldRef<"Client", 'DateTime'>
   }
@@ -8566,12 +8618,16 @@ export namespace Prisma {
   export const ClientScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    dni: 'dni',
     email: 'email',
     password: 'password',
     phone: 'phone',
     address: 'address',
-    createdBy: 'createdBy',
-    createdIn: 'createdIn',
+    bankAccount: 'bankAccount',
+    imageDniFront: 'imageDniFront',
+    imageDniBack: 'imageDniBack',
+    createdById: 'createdById',
+    createdInId: 'createdInId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8809,41 +8865,50 @@ export namespace Prisma {
     NOT?: ClientWhereInput | ClientWhereInput[]
     id?: StringFilter<"Client"> | string
     name?: StringFilter<"Client"> | string
+    dni?: StringFilter<"Client"> | string
     email?: StringFilter<"Client"> | string
     password?: StringFilter<"Client"> | string
     phone?: StringFilter<"Client"> | string
     address?: StringFilter<"Client"> | string
-    createdBy?: StringFilter<"Client"> | string
-    createdIn?: StringFilter<"Client"> | string
+    bankAccount?: StringFilter<"Client"> | string
+    imageDniFront?: StringFilter<"Client"> | string
+    imageDniBack?: StringFilter<"Client"> | string
+    createdById?: StringFilter<"Client"> | string
+    createdInId?: StringFilter<"Client"> | string
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
     loans?: LoanListRelationFilter
     payments?: PaymentListRelationFilter
     tenants?: TenantClientListRelationFilter
-    createdByUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    createdInTenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
+    createdIn?: XOR<TenantScalarRelationFilter, TenantWhereInput>
   }
 
   export type ClientOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    dni?: SortOrder
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
     address?: SortOrder
-    createdBy?: SortOrder
-    createdIn?: SortOrder
+    bankAccount?: SortOrder
+    imageDniFront?: SortOrder
+    imageDniBack?: SortOrder
+    createdById?: SortOrder
+    createdInId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     loans?: LoanOrderByRelationAggregateInput
     payments?: PaymentOrderByRelationAggregateInput
     tenants?: TenantClientOrderByRelationAggregateInput
-    createdByUser?: UserOrderByWithRelationInput
-    createdInTenant?: TenantOrderByWithRelationInput
+    createdBy?: UserOrderByWithRelationInput
+    createdIn?: TenantOrderByWithRelationInput
   }
 
   export type ClientWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    dni?: string
     email?: string
     AND?: ClientWhereInput | ClientWhereInput[]
     OR?: ClientWhereInput[]
@@ -8852,26 +8917,33 @@ export namespace Prisma {
     password?: StringFilter<"Client"> | string
     phone?: StringFilter<"Client"> | string
     address?: StringFilter<"Client"> | string
-    createdBy?: StringFilter<"Client"> | string
-    createdIn?: StringFilter<"Client"> | string
+    bankAccount?: StringFilter<"Client"> | string
+    imageDniFront?: StringFilter<"Client"> | string
+    imageDniBack?: StringFilter<"Client"> | string
+    createdById?: StringFilter<"Client"> | string
+    createdInId?: StringFilter<"Client"> | string
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
     loans?: LoanListRelationFilter
     payments?: PaymentListRelationFilter
     tenants?: TenantClientListRelationFilter
-    createdByUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    createdInTenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
-  }, "id" | "email">
+    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
+    createdIn?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+  }, "id" | "dni" | "email">
 
   export type ClientOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    dni?: SortOrder
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
     address?: SortOrder
-    createdBy?: SortOrder
-    createdIn?: SortOrder
+    bankAccount?: SortOrder
+    imageDniFront?: SortOrder
+    imageDniBack?: SortOrder
+    createdById?: SortOrder
+    createdInId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ClientCountOrderByAggregateInput
@@ -8885,12 +8957,16 @@ export namespace Prisma {
     NOT?: ClientScalarWhereWithAggregatesInput | ClientScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Client"> | string
     name?: StringWithAggregatesFilter<"Client"> | string
+    dni?: StringWithAggregatesFilter<"Client"> | string
     email?: StringWithAggregatesFilter<"Client"> | string
     password?: StringWithAggregatesFilter<"Client"> | string
     phone?: StringWithAggregatesFilter<"Client"> | string
     address?: StringWithAggregatesFilter<"Client"> | string
-    createdBy?: StringWithAggregatesFilter<"Client"> | string
-    createdIn?: StringWithAggregatesFilter<"Client"> | string
+    bankAccount?: StringWithAggregatesFilter<"Client"> | string
+    imageDniFront?: StringWithAggregatesFilter<"Client"> | string
+    imageDniBack?: StringWithAggregatesFilter<"Client"> | string
+    createdById?: StringWithAggregatesFilter<"Client"> | string
+    createdInId?: StringWithAggregatesFilter<"Client"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
   }
@@ -9209,7 +9285,7 @@ export namespace Prisma {
     loans?: LoanCreateNestedManyWithoutTenantInput
     payments?: PaymentCreateNestedManyWithoutTenantInput
     clients?: TenantClientCreateNestedManyWithoutTenantInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUncheckedCreateInput = {
@@ -9221,7 +9297,7 @@ export namespace Prisma {
     loans?: LoanUncheckedCreateNestedManyWithoutTenantInput
     payments?: PaymentUncheckedCreateNestedManyWithoutTenantInput
     clients?: TenantClientUncheckedCreateNestedManyWithoutTenantInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUpdateInput = {
@@ -9233,7 +9309,7 @@ export namespace Prisma {
     loans?: LoanUpdateManyWithoutTenantNestedInput
     payments?: PaymentUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantUncheckedUpdateInput = {
@@ -9245,7 +9321,7 @@ export namespace Prisma {
     loans?: LoanUncheckedUpdateManyWithoutTenantNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUncheckedUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantCreateManyInput = {
@@ -9272,28 +9348,36 @@ export namespace Prisma {
   export type ClientCreateInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutClientInput
     payments?: PaymentCreateNestedManyWithoutClientInput
     tenants?: TenantClientCreateNestedManyWithoutClientInput
-    createdByUser: UserCreateNestedOneWithoutCreatedClientsInput
-    createdInTenant: TenantCreateNestedOneWithoutCreatedClientsInput
+    createdBy: UserCreateNestedOneWithoutCreatedClientsInput
+    createdIn: TenantCreateNestedOneWithoutCreatedClientsInput
   }
 
   export type ClientUncheckedCreateInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutClientInput
@@ -9304,28 +9388,36 @@ export namespace Prisma {
   export type ClientUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutClientNestedInput
     payments?: PaymentUpdateManyWithoutClientNestedInput
     tenants?: TenantClientUpdateManyWithoutClientNestedInput
-    createdByUser?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
-    createdInTenant?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdIn?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
   export type ClientUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutClientNestedInput
@@ -9336,12 +9428,16 @@ export namespace Prisma {
   export type ClientCreateManyInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9349,10 +9445,14 @@ export namespace Prisma {
   export type ClientUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9360,12 +9460,16 @@ export namespace Prisma {
   export type ClientUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9428,7 +9532,7 @@ export namespace Prisma {
     tenant: TenantCreateNestedOneWithoutUsersInput
     loans?: LoanCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -9442,7 +9546,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUpdateInput = {
@@ -9456,7 +9560,7 @@ export namespace Prisma {
     tenant?: TenantUpdateOneRequiredWithoutUsersNestedInput
     loans?: LoanUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -9470,7 +9574,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9812,12 +9916,16 @@ export namespace Prisma {
   export type ClientCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    dni?: SortOrder
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
     address?: SortOrder
-    createdBy?: SortOrder
-    createdIn?: SortOrder
+    bankAccount?: SortOrder
+    imageDniFront?: SortOrder
+    imageDniBack?: SortOrder
+    createdById?: SortOrder
+    createdInId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9825,12 +9933,16 @@ export namespace Prisma {
   export type ClientMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    dni?: SortOrder
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
     address?: SortOrder
-    createdBy?: SortOrder
-    createdIn?: SortOrder
+    bankAccount?: SortOrder
+    imageDniFront?: SortOrder
+    imageDniBack?: SortOrder
+    createdById?: SortOrder
+    createdInId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9838,12 +9950,16 @@ export namespace Prisma {
   export type ClientMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    dni?: SortOrder
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
     address?: SortOrder
-    createdBy?: SortOrder
-    createdIn?: SortOrder
+    bankAccount?: SortOrder
+    imageDniFront?: SortOrder
+    imageDniBack?: SortOrder
+    createdById?: SortOrder
+    createdInId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10125,10 +10241,10 @@ export namespace Prisma {
     connect?: TenantClientWhereUniqueInput | TenantClientWhereUniqueInput[]
   }
 
-  export type ClientCreateNestedManyWithoutCreatedInTenantInput = {
-    create?: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput> | ClientCreateWithoutCreatedInTenantInput[] | ClientUncheckedCreateWithoutCreatedInTenantInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInTenantInput | ClientCreateOrConnectWithoutCreatedInTenantInput[]
-    createMany?: ClientCreateManyCreatedInTenantInputEnvelope
+  export type ClientCreateNestedManyWithoutCreatedInInput = {
+    create?: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput> | ClientCreateWithoutCreatedInInput[] | ClientUncheckedCreateWithoutCreatedInInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInInput | ClientCreateOrConnectWithoutCreatedInInput[]
+    createMany?: ClientCreateManyCreatedInInputEnvelope
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
   }
 
@@ -10160,10 +10276,10 @@ export namespace Prisma {
     connect?: TenantClientWhereUniqueInput | TenantClientWhereUniqueInput[]
   }
 
-  export type ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput = {
-    create?: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput> | ClientCreateWithoutCreatedInTenantInput[] | ClientUncheckedCreateWithoutCreatedInTenantInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInTenantInput | ClientCreateOrConnectWithoutCreatedInTenantInput[]
-    createMany?: ClientCreateManyCreatedInTenantInputEnvelope
+  export type ClientUncheckedCreateNestedManyWithoutCreatedInInput = {
+    create?: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput> | ClientCreateWithoutCreatedInInput[] | ClientUncheckedCreateWithoutCreatedInInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInInput | ClientCreateOrConnectWithoutCreatedInInput[]
+    createMany?: ClientCreateManyCreatedInInputEnvelope
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
   }
 
@@ -10231,17 +10347,17 @@ export namespace Prisma {
     deleteMany?: TenantClientScalarWhereInput | TenantClientScalarWhereInput[]
   }
 
-  export type ClientUpdateManyWithoutCreatedInTenantNestedInput = {
-    create?: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput> | ClientCreateWithoutCreatedInTenantInput[] | ClientUncheckedCreateWithoutCreatedInTenantInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInTenantInput | ClientCreateOrConnectWithoutCreatedInTenantInput[]
-    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedInTenantInput | ClientUpsertWithWhereUniqueWithoutCreatedInTenantInput[]
-    createMany?: ClientCreateManyCreatedInTenantInputEnvelope
+  export type ClientUpdateManyWithoutCreatedInNestedInput = {
+    create?: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput> | ClientCreateWithoutCreatedInInput[] | ClientUncheckedCreateWithoutCreatedInInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInInput | ClientCreateOrConnectWithoutCreatedInInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedInInput | ClientUpsertWithWhereUniqueWithoutCreatedInInput[]
+    createMany?: ClientCreateManyCreatedInInputEnvelope
     set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
-    update?: ClientUpdateWithWhereUniqueWithoutCreatedInTenantInput | ClientUpdateWithWhereUniqueWithoutCreatedInTenantInput[]
-    updateMany?: ClientUpdateManyWithWhereWithoutCreatedInTenantInput | ClientUpdateManyWithWhereWithoutCreatedInTenantInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutCreatedInInput | ClientUpdateWithWhereUniqueWithoutCreatedInInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutCreatedInInput | ClientUpdateManyWithWhereWithoutCreatedInInput[]
     deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
   }
 
@@ -10301,17 +10417,17 @@ export namespace Prisma {
     deleteMany?: TenantClientScalarWhereInput | TenantClientScalarWhereInput[]
   }
 
-  export type ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput = {
-    create?: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput> | ClientCreateWithoutCreatedInTenantInput[] | ClientUncheckedCreateWithoutCreatedInTenantInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInTenantInput | ClientCreateOrConnectWithoutCreatedInTenantInput[]
-    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedInTenantInput | ClientUpsertWithWhereUniqueWithoutCreatedInTenantInput[]
-    createMany?: ClientCreateManyCreatedInTenantInputEnvelope
+  export type ClientUncheckedUpdateManyWithoutCreatedInNestedInput = {
+    create?: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput> | ClientCreateWithoutCreatedInInput[] | ClientUncheckedCreateWithoutCreatedInInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedInInput | ClientCreateOrConnectWithoutCreatedInInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedInInput | ClientUpsertWithWhereUniqueWithoutCreatedInInput[]
+    createMany?: ClientCreateManyCreatedInInputEnvelope
     set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
-    update?: ClientUpdateWithWhereUniqueWithoutCreatedInTenantInput | ClientUpdateWithWhereUniqueWithoutCreatedInTenantInput[]
-    updateMany?: ClientUpdateManyWithWhereWithoutCreatedInTenantInput | ClientUpdateManyWithWhereWithoutCreatedInTenantInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutCreatedInInput | ClientUpdateWithWhereUniqueWithoutCreatedInInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutCreatedInInput | ClientUpdateManyWithWhereWithoutCreatedInInput[]
     deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
   }
 
@@ -10517,10 +10633,10 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
-  export type ClientCreateNestedManyWithoutCreatedByUserInput = {
-    create?: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput> | ClientCreateWithoutCreatedByUserInput[] | ClientUncheckedCreateWithoutCreatedByUserInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByUserInput | ClientCreateOrConnectWithoutCreatedByUserInput[]
-    createMany?: ClientCreateManyCreatedByUserInputEnvelope
+  export type ClientCreateNestedManyWithoutCreatedByInput = {
+    create?: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput> | ClientCreateWithoutCreatedByInput[] | ClientUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByInput | ClientCreateOrConnectWithoutCreatedByInput[]
+    createMany?: ClientCreateManyCreatedByInputEnvelope
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
   }
 
@@ -10538,10 +10654,10 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
-  export type ClientUncheckedCreateNestedManyWithoutCreatedByUserInput = {
-    create?: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput> | ClientCreateWithoutCreatedByUserInput[] | ClientUncheckedCreateWithoutCreatedByUserInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByUserInput | ClientCreateOrConnectWithoutCreatedByUserInput[]
-    createMany?: ClientCreateManyCreatedByUserInputEnvelope
+  export type ClientUncheckedCreateNestedManyWithoutCreatedByInput = {
+    create?: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput> | ClientCreateWithoutCreatedByInput[] | ClientUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByInput | ClientCreateOrConnectWithoutCreatedByInput[]
+    createMany?: ClientCreateManyCreatedByInputEnvelope
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
   }
 
@@ -10585,17 +10701,17 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
-  export type ClientUpdateManyWithoutCreatedByUserNestedInput = {
-    create?: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput> | ClientCreateWithoutCreatedByUserInput[] | ClientUncheckedCreateWithoutCreatedByUserInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByUserInput | ClientCreateOrConnectWithoutCreatedByUserInput[]
-    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedByUserInput | ClientUpsertWithWhereUniqueWithoutCreatedByUserInput[]
-    createMany?: ClientCreateManyCreatedByUserInputEnvelope
+  export type ClientUpdateManyWithoutCreatedByNestedInput = {
+    create?: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput> | ClientCreateWithoutCreatedByInput[] | ClientUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByInput | ClientCreateOrConnectWithoutCreatedByInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedByInput | ClientUpsertWithWhereUniqueWithoutCreatedByInput[]
+    createMany?: ClientCreateManyCreatedByInputEnvelope
     set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
-    update?: ClientUpdateWithWhereUniqueWithoutCreatedByUserInput | ClientUpdateWithWhereUniqueWithoutCreatedByUserInput[]
-    updateMany?: ClientUpdateManyWithWhereWithoutCreatedByUserInput | ClientUpdateManyWithWhereWithoutCreatedByUserInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutCreatedByInput | ClientUpdateWithWhereUniqueWithoutCreatedByInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutCreatedByInput | ClientUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
   }
 
@@ -10627,17 +10743,17 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
-  export type ClientUncheckedUpdateManyWithoutCreatedByUserNestedInput = {
-    create?: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput> | ClientCreateWithoutCreatedByUserInput[] | ClientUncheckedCreateWithoutCreatedByUserInput[]
-    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByUserInput | ClientCreateOrConnectWithoutCreatedByUserInput[]
-    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedByUserInput | ClientUpsertWithWhereUniqueWithoutCreatedByUserInput[]
-    createMany?: ClientCreateManyCreatedByUserInputEnvelope
+  export type ClientUncheckedUpdateManyWithoutCreatedByNestedInput = {
+    create?: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput> | ClientCreateWithoutCreatedByInput[] | ClientUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutCreatedByInput | ClientCreateOrConnectWithoutCreatedByInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutCreatedByInput | ClientUpsertWithWhereUniqueWithoutCreatedByInput[]
+    createMany?: ClientCreateManyCreatedByInputEnvelope
     set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
     connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
-    update?: ClientUpdateWithWhereUniqueWithoutCreatedByUserInput | ClientUpdateWithWhereUniqueWithoutCreatedByUserInput[]
-    updateMany?: ClientUpdateManyWithWhereWithoutCreatedByUserInput | ClientUpdateManyWithWhereWithoutCreatedByUserInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutCreatedByInput | ClientUpdateWithWhereUniqueWithoutCreatedByInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutCreatedByInput | ClientUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
   }
 
@@ -10955,7 +11071,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateWithoutTenantInput = {
@@ -10968,7 +11084,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserCreateOrConnectWithoutTenantInput = {
@@ -11069,29 +11185,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ClientCreateWithoutCreatedInTenantInput = {
+  export type ClientCreateWithoutCreatedInInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutClientInput
     payments?: PaymentCreateNestedManyWithoutClientInput
     tenants?: TenantClientCreateNestedManyWithoutClientInput
-    createdByUser: UserCreateNestedOneWithoutCreatedClientsInput
+    createdBy: UserCreateNestedOneWithoutCreatedClientsInput
   }
 
-  export type ClientUncheckedCreateWithoutCreatedInTenantInput = {
+  export type ClientUncheckedCreateWithoutCreatedInInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutClientInput
@@ -11099,13 +11223,13 @@ export namespace Prisma {
     tenants?: TenantClientUncheckedCreateNestedManyWithoutClientInput
   }
 
-  export type ClientCreateOrConnectWithoutCreatedInTenantInput = {
+  export type ClientCreateOrConnectWithoutCreatedInInput = {
     where: ClientWhereUniqueInput
-    create: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput>
+    create: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput>
   }
 
-  export type ClientCreateManyCreatedInTenantInputEnvelope = {
-    data: ClientCreateManyCreatedInTenantInput | ClientCreateManyCreatedInTenantInput[]
+  export type ClientCreateManyCreatedInInputEnvelope = {
+    data: ClientCreateManyCreatedInInput | ClientCreateManyCreatedInInput[]
     skipDuplicates?: boolean
   }
 
@@ -11227,20 +11351,20 @@ export namespace Prisma {
     joinedAt?: DateTimeFilter<"TenantClient"> | Date | string
   }
 
-  export type ClientUpsertWithWhereUniqueWithoutCreatedInTenantInput = {
+  export type ClientUpsertWithWhereUniqueWithoutCreatedInInput = {
     where: ClientWhereUniqueInput
-    update: XOR<ClientUpdateWithoutCreatedInTenantInput, ClientUncheckedUpdateWithoutCreatedInTenantInput>
-    create: XOR<ClientCreateWithoutCreatedInTenantInput, ClientUncheckedCreateWithoutCreatedInTenantInput>
+    update: XOR<ClientUpdateWithoutCreatedInInput, ClientUncheckedUpdateWithoutCreatedInInput>
+    create: XOR<ClientCreateWithoutCreatedInInput, ClientUncheckedCreateWithoutCreatedInInput>
   }
 
-  export type ClientUpdateWithWhereUniqueWithoutCreatedInTenantInput = {
+  export type ClientUpdateWithWhereUniqueWithoutCreatedInInput = {
     where: ClientWhereUniqueInput
-    data: XOR<ClientUpdateWithoutCreatedInTenantInput, ClientUncheckedUpdateWithoutCreatedInTenantInput>
+    data: XOR<ClientUpdateWithoutCreatedInInput, ClientUncheckedUpdateWithoutCreatedInInput>
   }
 
-  export type ClientUpdateManyWithWhereWithoutCreatedInTenantInput = {
+  export type ClientUpdateManyWithWhereWithoutCreatedInInput = {
     where: ClientScalarWhereInput
-    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyWithoutCreatedInTenantInput>
+    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyWithoutCreatedInInput>
   }
 
   export type ClientScalarWhereInput = {
@@ -11249,12 +11373,16 @@ export namespace Prisma {
     NOT?: ClientScalarWhereInput | ClientScalarWhereInput[]
     id?: StringFilter<"Client"> | string
     name?: StringFilter<"Client"> | string
+    dni?: StringFilter<"Client"> | string
     email?: StringFilter<"Client"> | string
     password?: StringFilter<"Client"> | string
     phone?: StringFilter<"Client"> | string
     address?: StringFilter<"Client"> | string
-    createdBy?: StringFilter<"Client"> | string
-    createdIn?: StringFilter<"Client"> | string
+    bankAccount?: StringFilter<"Client"> | string
+    imageDniFront?: StringFilter<"Client"> | string
+    imageDniBack?: StringFilter<"Client"> | string
+    createdById?: StringFilter<"Client"> | string
+    createdInId?: StringFilter<"Client"> | string
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
   }
@@ -11531,7 +11659,7 @@ export namespace Prisma {
     users?: UserCreateNestedManyWithoutTenantInput
     loans?: LoanCreateNestedManyWithoutTenantInput
     payments?: PaymentCreateNestedManyWithoutTenantInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUncheckedCreateWithoutClientsInput = {
@@ -11542,7 +11670,7 @@ export namespace Prisma {
     users?: UserUncheckedCreateNestedManyWithoutTenantInput
     loans?: LoanUncheckedCreateNestedManyWithoutTenantInput
     payments?: PaymentUncheckedCreateNestedManyWithoutTenantInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantCreateOrConnectWithoutClientsInput = {
@@ -11553,27 +11681,35 @@ export namespace Prisma {
   export type ClientCreateWithoutTenantsInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutClientInput
     payments?: PaymentCreateNestedManyWithoutClientInput
-    createdByUser: UserCreateNestedOneWithoutCreatedClientsInput
-    createdInTenant: TenantCreateNestedOneWithoutCreatedClientsInput
+    createdBy: UserCreateNestedOneWithoutCreatedClientsInput
+    createdIn: TenantCreateNestedOneWithoutCreatedClientsInput
   }
 
   export type ClientUncheckedCreateWithoutTenantsInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutClientInput
@@ -11604,7 +11740,7 @@ export namespace Prisma {
     users?: UserUpdateManyWithoutTenantNestedInput
     loans?: LoanUpdateManyWithoutTenantNestedInput
     payments?: PaymentUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutClientsInput = {
@@ -11615,7 +11751,7 @@ export namespace Prisma {
     users?: UserUncheckedUpdateManyWithoutTenantNestedInput
     loans?: LoanUncheckedUpdateManyWithoutTenantNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInNestedInput
   }
 
   export type ClientUpsertWithoutTenantsInput = {
@@ -11632,27 +11768,35 @@ export namespace Prisma {
   export type ClientUpdateWithoutTenantsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutClientNestedInput
     payments?: PaymentUpdateManyWithoutClientNestedInput
-    createdByUser?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
-    createdInTenant?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdIn?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
   export type ClientUncheckedUpdateWithoutTenantsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutClientNestedInput
@@ -11667,7 +11811,7 @@ export namespace Prisma {
     loans?: LoanCreateNestedManyWithoutTenantInput
     payments?: PaymentCreateNestedManyWithoutTenantInput
     clients?: TenantClientCreateNestedManyWithoutTenantInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUncheckedCreateWithoutUsersInput = {
@@ -11678,7 +11822,7 @@ export namespace Prisma {
     loans?: LoanUncheckedCreateNestedManyWithoutTenantInput
     payments?: PaymentUncheckedCreateNestedManyWithoutTenantInput
     clients?: TenantClientUncheckedCreateNestedManyWithoutTenantInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantCreateOrConnectWithoutUsersInput = {
@@ -11752,29 +11896,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ClientCreateWithoutCreatedByUserInput = {
+  export type ClientCreateWithoutCreatedByInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutClientInput
     payments?: PaymentCreateNestedManyWithoutClientInput
     tenants?: TenantClientCreateNestedManyWithoutClientInput
-    createdInTenant: TenantCreateNestedOneWithoutCreatedClientsInput
+    createdIn: TenantCreateNestedOneWithoutCreatedClientsInput
   }
 
-  export type ClientUncheckedCreateWithoutCreatedByUserInput = {
+  export type ClientUncheckedCreateWithoutCreatedByInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutClientInput
@@ -11782,13 +11934,13 @@ export namespace Prisma {
     tenants?: TenantClientUncheckedCreateNestedManyWithoutClientInput
   }
 
-  export type ClientCreateOrConnectWithoutCreatedByUserInput = {
+  export type ClientCreateOrConnectWithoutCreatedByInput = {
     where: ClientWhereUniqueInput
-    create: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput>
+    create: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput>
   }
 
-  export type ClientCreateManyCreatedByUserInputEnvelope = {
-    data: ClientCreateManyCreatedByUserInput | ClientCreateManyCreatedByUserInput[]
+  export type ClientCreateManyCreatedByInputEnvelope = {
+    data: ClientCreateManyCreatedByInput | ClientCreateManyCreatedByInput[]
     skipDuplicates?: boolean
   }
 
@@ -11811,7 +11963,7 @@ export namespace Prisma {
     loans?: LoanUpdateManyWithoutTenantNestedInput
     payments?: PaymentUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutUsersInput = {
@@ -11822,7 +11974,7 @@ export namespace Prisma {
     loans?: LoanUncheckedUpdateManyWithoutTenantNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUncheckedUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInNestedInput
   }
 
   export type LoanUpsertWithWhereUniqueWithoutUserInput = {
@@ -11857,46 +12009,54 @@ export namespace Prisma {
     data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ClientUpsertWithWhereUniqueWithoutCreatedByUserInput = {
+  export type ClientUpsertWithWhereUniqueWithoutCreatedByInput = {
     where: ClientWhereUniqueInput
-    update: XOR<ClientUpdateWithoutCreatedByUserInput, ClientUncheckedUpdateWithoutCreatedByUserInput>
-    create: XOR<ClientCreateWithoutCreatedByUserInput, ClientUncheckedCreateWithoutCreatedByUserInput>
+    update: XOR<ClientUpdateWithoutCreatedByInput, ClientUncheckedUpdateWithoutCreatedByInput>
+    create: XOR<ClientCreateWithoutCreatedByInput, ClientUncheckedCreateWithoutCreatedByInput>
   }
 
-  export type ClientUpdateWithWhereUniqueWithoutCreatedByUserInput = {
+  export type ClientUpdateWithWhereUniqueWithoutCreatedByInput = {
     where: ClientWhereUniqueInput
-    data: XOR<ClientUpdateWithoutCreatedByUserInput, ClientUncheckedUpdateWithoutCreatedByUserInput>
+    data: XOR<ClientUpdateWithoutCreatedByInput, ClientUncheckedUpdateWithoutCreatedByInput>
   }
 
-  export type ClientUpdateManyWithWhereWithoutCreatedByUserInput = {
+  export type ClientUpdateManyWithWhereWithoutCreatedByInput = {
     where: ClientScalarWhereInput
-    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyWithoutCreatedByUserInput>
+    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyWithoutCreatedByInput>
   }
 
   export type ClientCreateWithoutLoansInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     payments?: PaymentCreateNestedManyWithoutClientInput
     tenants?: TenantClientCreateNestedManyWithoutClientInput
-    createdByUser: UserCreateNestedOneWithoutCreatedClientsInput
-    createdInTenant: TenantCreateNestedOneWithoutCreatedClientsInput
+    createdBy: UserCreateNestedOneWithoutCreatedClientsInput
+    createdIn: TenantCreateNestedOneWithoutCreatedClientsInput
   }
 
   export type ClientUncheckedCreateWithoutLoansInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     payments?: PaymentUncheckedCreateNestedManyWithoutClientInput
@@ -11916,7 +12076,7 @@ export namespace Prisma {
     users?: UserCreateNestedManyWithoutTenantInput
     payments?: PaymentCreateNestedManyWithoutTenantInput
     clients?: TenantClientCreateNestedManyWithoutTenantInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUncheckedCreateWithoutLoansInput = {
@@ -11927,7 +12087,7 @@ export namespace Prisma {
     users?: UserUncheckedCreateNestedManyWithoutTenantInput
     payments?: PaymentUncheckedCreateNestedManyWithoutTenantInput
     clients?: TenantClientUncheckedCreateNestedManyWithoutTenantInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantCreateOrConnectWithoutLoansInput = {
@@ -11945,7 +12105,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     tenant: TenantCreateNestedOneWithoutUsersInput
     payments?: PaymentCreateNestedManyWithoutUserInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateWithoutLoansInput = {
@@ -11958,7 +12118,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserCreateOrConnectWithoutLoansInput = {
@@ -12008,27 +12168,35 @@ export namespace Prisma {
   export type ClientUpdateWithoutLoansInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     payments?: PaymentUpdateManyWithoutClientNestedInput
     tenants?: TenantClientUpdateManyWithoutClientNestedInput
-    createdByUser?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
-    createdInTenant?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdIn?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
   export type ClientUncheckedUpdateWithoutLoansInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     payments?: PaymentUncheckedUpdateManyWithoutClientNestedInput
@@ -12054,7 +12222,7 @@ export namespace Prisma {
     users?: UserUpdateManyWithoutTenantNestedInput
     payments?: PaymentUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutLoansInput = {
@@ -12065,7 +12233,7 @@ export namespace Prisma {
     users?: UserUncheckedUpdateManyWithoutTenantNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUncheckedUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInNestedInput
   }
 
   export type UserUpsertWithoutLoansInput = {
@@ -12089,7 +12257,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tenant?: TenantUpdateOneRequiredWithoutUsersNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLoansInput = {
@@ -12102,7 +12270,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type PaymentUpsertWithWhereUniqueWithoutLoanInput = {
@@ -12157,27 +12325,35 @@ export namespace Prisma {
   export type ClientCreateWithoutPaymentsInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanCreateNestedManyWithoutClientInput
     tenants?: TenantClientCreateNestedManyWithoutClientInput
-    createdByUser: UserCreateNestedOneWithoutCreatedClientsInput
-    createdInTenant: TenantCreateNestedOneWithoutCreatedClientsInput
+    createdBy: UserCreateNestedOneWithoutCreatedClientsInput
+    createdIn: TenantCreateNestedOneWithoutCreatedClientsInput
   }
 
   export type ClientUncheckedCreateWithoutPaymentsInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutClientInput
@@ -12199,7 +12375,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     tenant: TenantCreateNestedOneWithoutUsersInput
     loans?: LoanCreateNestedManyWithoutUserInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateWithoutPaymentsInput = {
@@ -12212,7 +12388,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     loans?: LoanUncheckedCreateNestedManyWithoutUserInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByUserInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserCreateOrConnectWithoutPaymentsInput = {
@@ -12228,7 +12404,7 @@ export namespace Prisma {
     users?: UserCreateNestedManyWithoutTenantInput
     loans?: LoanCreateNestedManyWithoutTenantInput
     clients?: TenantClientCreateNestedManyWithoutTenantInput
-    createdClients?: ClientCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantUncheckedCreateWithoutPaymentsInput = {
@@ -12239,7 +12415,7 @@ export namespace Prisma {
     users?: UserUncheckedCreateNestedManyWithoutTenantInput
     loans?: LoanUncheckedCreateNestedManyWithoutTenantInput
     clients?: TenantClientUncheckedCreateNestedManyWithoutTenantInput
-    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInTenantInput
+    createdClients?: ClientUncheckedCreateNestedManyWithoutCreatedInInput
   }
 
   export type TenantCreateOrConnectWithoutPaymentsInput = {
@@ -12300,27 +12476,35 @@ export namespace Prisma {
   export type ClientUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutClientNestedInput
     tenants?: TenantClientUpdateManyWithoutClientNestedInput
-    createdByUser?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
-    createdInTenant?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdIn?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
   export type ClientUncheckedUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutClientNestedInput
@@ -12348,7 +12532,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tenant?: TenantUpdateOneRequiredWithoutUsersNestedInput
     loans?: LoanUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPaymentsInput = {
@@ -12361,7 +12545,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type TenantUpsertWithoutPaymentsInput = {
@@ -12383,7 +12567,7 @@ export namespace Prisma {
     users?: UserUpdateManyWithoutTenantNestedInput
     loans?: LoanUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedInNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutPaymentsInput = {
@@ -12394,7 +12578,7 @@ export namespace Prisma {
     users?: UserUncheckedUpdateManyWithoutTenantNestedInput
     loans?: LoanUncheckedUpdateManyWithoutTenantNestedInput
     clients?: TenantClientUncheckedUpdateManyWithoutTenantNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInTenantNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedInNestedInput
   }
 
   export type UserCreateManyTenantInput = {
@@ -12435,14 +12619,18 @@ export namespace Prisma {
     joinedAt?: Date | string
   }
 
-  export type ClientCreateManyCreatedInTenantInput = {
+  export type ClientCreateManyCreatedInInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdBy: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12457,7 +12645,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTenantInput = {
@@ -12470,7 +12658,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByUserNestedInput
+    createdClients?: ClientUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutTenantInput = {
@@ -12569,29 +12757,37 @@ export namespace Prisma {
     joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ClientUpdateWithoutCreatedInTenantInput = {
+  export type ClientUpdateWithoutCreatedInInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutClientNestedInput
     payments?: PaymentUpdateManyWithoutClientNestedInput
     tenants?: TenantClientUpdateManyWithoutClientNestedInput
-    createdByUser?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
-  export type ClientUncheckedUpdateWithoutCreatedInTenantInput = {
+  export type ClientUncheckedUpdateWithoutCreatedInInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutClientNestedInput
@@ -12599,14 +12795,18 @@ export namespace Prisma {
     tenants?: TenantClientUncheckedUpdateManyWithoutClientNestedInput
   }
 
-  export type ClientUncheckedUpdateManyWithoutCreatedInTenantInput = {
+  export type ClientUncheckedUpdateManyWithoutCreatedInInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12747,14 +12947,18 @@ export namespace Prisma {
     date?: Date | string
   }
 
-  export type ClientCreateManyCreatedByUserInput = {
+  export type ClientCreateManyCreatedByInput = {
     id?: string
     name: string
+    dni: string
     email: string
     password: string
     phone: string
     address: string
-    createdIn: string
+    bankAccount: string
+    imageDniFront: string
+    imageDniBack: string
+    createdInId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12827,29 +13031,37 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ClientUpdateWithoutCreatedByUserInput = {
+  export type ClientUpdateWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUpdateManyWithoutClientNestedInput
     payments?: PaymentUpdateManyWithoutClientNestedInput
     tenants?: TenantClientUpdateManyWithoutClientNestedInput
-    createdInTenant?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
+    createdIn?: TenantUpdateOneRequiredWithoutCreatedClientsNestedInput
   }
 
-  export type ClientUncheckedUpdateWithoutCreatedByUserInput = {
+  export type ClientUncheckedUpdateWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     loans?: LoanUncheckedUpdateManyWithoutClientNestedInput
@@ -12857,14 +13069,18 @@ export namespace Prisma {
     tenants?: TenantClientUncheckedUpdateManyWithoutClientNestedInput
   }
 
-  export type ClientUncheckedUpdateManyWithoutCreatedByUserInput = {
+  export type ClientUncheckedUpdateManyWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    dni?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    createdIn?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    imageDniFront?: StringFieldUpdateOperationsInput | string
+    imageDniBack?: StringFieldUpdateOperationsInput | string
+    createdInId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
