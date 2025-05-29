@@ -21,10 +21,10 @@ export default async function Navbar() {
           </SheetContent>
         </Sheet>
       </div>
-      {/* <div className="relative w-[300px]">
+      <div className="relative w-[300px]">
         <Input placeholder="Buscar ..." className="rounded-lg" />
         <Search strokeWidth={1} className="absolute top-2 right-2" />
-      </div> */}
+      </div>
       <div className="flex gap-x-2 items-center">
         {session?.user.role === "SUPERADMIN" && (
           <ToggleTenant sucursales={sucursales} userTenantId={session.user?.tenantId}/>

@@ -41,6 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 # seed
-/prisma
+# /prisma
 
-/prisma/seed.js
+# /prisma/seed.js
